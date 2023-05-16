@@ -1,11 +1,19 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
+import { demoApi } from '@/api/demo.js'
 
 defineProps({
   msg: String,
 })
+async function demo() {
+  await demoApi()
+}
 
 const count = ref(0)
+onMounted(() => {
+  demo()
+  demo()
+})
 </script>
 
 <template>
