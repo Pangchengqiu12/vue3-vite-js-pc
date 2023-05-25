@@ -1,40 +1,16 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 import { demoApi } from '@/api/demo.js'
+import { useLogin } from '@/hooks/useLogin'
+const { login } = useLogin()
 
 defineProps({
   msg: String,
 })
-async function demo() {
-  await demoApi()
-}
-let p1 = new Promise(function (resolve, reject) {
-  console.log(11)
-  reject(1)
-})
-let p2 = new Promise(function (resolve, reject) {
-  console.log(22)
-  resolve(2)
-})
-let p3 = new Promise(function (resolve, reject) {
-  console.log(33)
-  reject(3)
-})
-
-const count = ref(0)
-onMounted(async () => {
-  Promise.allSettled([p1, p2, p3]).then(
-    (res) => {
-      console.log(res)
-    },
-    (err) => {
-      console.log(err)
-    },
-  )
-})
 </script>
 
 <template>
+  <button @click="login">登录</button>
   <h1>{{ msg }}</h1>
 
   <div class="card">

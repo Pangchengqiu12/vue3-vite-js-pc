@@ -1,6 +1,9 @@
 lockfileVersion: '6.0'
 
 dependencies:
+  normalize.css:
+    specifier: ^8.0.1
+    version: registry.npmmirror.com/normalize.css@8.0.1
   pinia:
     specifier: 2.0.27
     version: registry.npmmirror.com/pinia@2.0.27(typescript@5.0.4)(vue@3.3.1)
@@ -10,6 +13,9 @@ dependencies:
   vue:
     specifier: ^3.2.47
     version: registry.npmmirror.com/vue@3.3.1
+  vue-router:
+    specifier: ^4.2.1
+    version: registry.npmmirror.com/vue-router@4.2.1(vue@3.3.1)
 
 devDependencies:
   '@rushstack/eslint-patch':
@@ -1931,6 +1937,12 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: true
 
+  registry.npmmirror.com/normalize.css@8.0.1:
+    resolution: {integrity: sha512-qizSNPO93t1YUuUhP22btGOo3chcvDFqFaj2TRybP0DMxkHOCTYwp3n34fel4a31ORXy4m1Xq0Gyqpb5m33qIg==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/normalize.css/-/normalize.css-8.0.1.tgz}
+    name: normalize.css
+    version: 8.0.1
+    dev: false
+
   registry.npmmirror.com/npm-run-path@5.1.0:
     resolution: {integrity: sha512-sJOdmRGrY2sjNTRMbSvluQqg+8X7ZK61yvzBEIDhz4f8z1TZFYABsqjjCBd/0PUNE9M6QDgHJXQkGUEm7Q+l9Q==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/npm-run-path/-/npm-run-path-5.1.0.tgz}
     name: npm-run-path
@@ -2583,6 +2595,18 @@ packages:
     transitivePeerDependencies:
       - supports-color
     dev: true
+
+  registry.npmmirror.com/vue-router@4.2.1(vue@3.3.1):
+    resolution: {integrity: sha512-nW28EeifEp8Abc5AfmAShy5ZKGsGzjcnZ3L1yc2DYUo+MqbBClrRP9yda3dIekM4I50/KnEwo1wkBLf7kHH5Cw==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/vue-router/-/vue-router-4.2.1.tgz}
+    id: registry.npmmirror.com/vue-router/4.2.1
+    name: vue-router
+    version: 4.2.1
+    peerDependencies:
+      vue: ^3.2.0
+    dependencies:
+      '@vue/devtools-api': registry.npmmirror.com/@vue/devtools-api@6.5.0
+      vue: registry.npmmirror.com/vue@3.3.1
+    dev: false
 
   registry.npmmirror.com/vue@3.3.1:
     resolution: {integrity: sha512-3Rwy4I5idbPVSDZu6I+fFh6tdDSZbauImCTqLxE7y0LpHtiDvPeY01OI7RkFPbva1nk4hoO0sv/NzosH2h60sg==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/vue/-/vue-3.3.1.tgz}
