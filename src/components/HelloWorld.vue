@@ -8,11 +8,29 @@ defineProps({
 async function demo() {
   await demoApi()
 }
+let p1 = new Promise(function (resolve, reject) {
+  console.log(11)
+  reject(1)
+})
+let p2 = new Promise(function (resolve, reject) {
+  console.log(22)
+  resolve(2)
+})
+let p3 = new Promise(function (resolve, reject) {
+  console.log(33)
+  reject(3)
+})
 
 const count = ref(0)
-onMounted(() => {
-  demo()
-  demo()
+onMounted(async () => {
+  Promise.allSettled([p1, p2, p3]).then(
+    (res) => {
+      console.log(res)
+    },
+    (err) => {
+      console.log(err)
+    },
+  )
 })
 </script>
 
