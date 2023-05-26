@@ -1,4 +1,4 @@
-import { useMemberStore } from '@/stores'
+// import { useMemberStore } from '@/stores'
 import { createRouter, createWebHashHistory } from 'vue-router'
 
 const routes = [
@@ -32,8 +32,8 @@ router.beforeEach((to) => {
   // if (!member.isLogin && to.path.startsWith('/member')) {
   //   return `/login?target=${to.fullPath}`
   // }
-  const store = useMemberStore()
-  console.log(to, store)
+  // const store = useMemberStore()
+  console.log(to)
 })
 
 export default router
