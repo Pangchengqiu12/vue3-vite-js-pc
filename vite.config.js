@@ -5,7 +5,7 @@ import { fileURLToPath, URL } from 'node:url'
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [vue()],
-  define: { 'process.env': {} },
+  // define: { 'process.env': {} },
   resolve: {
     alias: {
       // 关键代码
@@ -16,19 +16,19 @@ export default defineConfig({
   //   open: true,
   //   cors: true,
   // },
-  server: {
-    port: '5173',
-    open: true, //自动打开
-    proxy: {
-      '/app-api': {
-        target: 'https://lhhcrm.asrobot.cn/',
-        secure: true,
-        changeOrigin: false, // 由于server接口 不以/api开头
-        rewrite: (path) => path.replace(/^\/app-api/, ''),
-        headers: {
-          'Access-Control-Allow-Origin': '*',
-        },
-      },
-    },
-  },
+  // server: {
+  //   port: '5173',
+  //   open: true, //自动打开
+  //   proxy: {
+  //     '/app-api': {
+  //       target: 'https://lhhcrm.asrobot.cn/',
+  //       secure: true,
+  //       changeOrigin: false, // 由于server接口 不以/api开头
+  //       rewrite: (path) => path.replace(/^\/app-api/, ''),
+  //       headers: {
+  //         'Access-Control-Allow-Origin': '*',
+  //       },
+  //     },
+  //   },
+  // },
 })

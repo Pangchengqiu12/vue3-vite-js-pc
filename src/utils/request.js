@@ -3,6 +3,7 @@ import { useMemberStore } from '@/stores/index'
 
 // const pendingRequests = {}
 const token = useMemberStore().userInfo?.accessToken
+console.log(useMemberStore().userInfo?.accessToken)
 // let requestKey = null
 // let errorRequest = false //判断重新发送的请求是否失败
 let maxCount = 2 //最大重试次数
@@ -13,7 +14,7 @@ let request = axios.create({
   headers: {
     'Content-Type': 'application/json',
     'Access-Control-Allow-Origin': '*',
-    Authorization: token || '',
+    Authorization: 'Bearer ' + token || '',
   },
 })
 

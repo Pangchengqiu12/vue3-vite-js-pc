@@ -26,14 +26,14 @@ const router = createRouter({
 // 导航守卫 - 全局前置守卫
 // VueRouter4升级: return 取代了以前的 next() 放行函数
 // return true 或 undefined(没写return) 都默认放行
-router.beforeEach((to) => {
-  // const { member } = useStore()
-  // 进行判断：未登录情况但是访问 /member 开头的路径，需要跳转登录页
-  // if (!member.isLogin && to.path.startsWith('/member')) {
-  //   return `/login?target=${to.fullPath}`
-  // }
-  // const store = useMemberStore()
-  console.log(to)
-})
+// router.beforeEach((to) => {
+// const { member } = useStore()
+// 进行判断：未登录情况但是访问 /member 开头的路径，需要跳转登录页
+// if (!member.isLogin && to.path.startsWith('/member')) {
+//   return `/login?target=${to.fullPath}`
+// }
+// const store = useMemberStore()
+// console.log(to)
+// })
 
 export default router

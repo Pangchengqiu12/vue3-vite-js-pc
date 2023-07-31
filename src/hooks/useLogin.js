@@ -7,7 +7,6 @@ export const useLogin = () => {
     username: '125000014',
     password: '125000014',
   })
-
   async function login() {
     let { data } = await demoApi(userInfo.value)
     memberStore.setUserInfo(data)
