@@ -12,7 +12,7 @@
   "lint-staged": {
     "*.{js,ts,vue}": [
       "eslint --fix",
-      "npx prettier --write"
+      "npx prettier --write ."
     ],
     "{!(package)*.json,*.code-snippets,.!(browserslist)*rc}": [
       "npx prettier --write--parser json"
