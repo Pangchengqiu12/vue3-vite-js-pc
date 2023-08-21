@@ -35,7 +35,6 @@ export class AxiosCancel {
     })
     this.reset()
   }
-
   reset() {
     this.pendingMap = new Map()
   }

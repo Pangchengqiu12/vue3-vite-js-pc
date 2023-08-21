@@ -116,16 +116,6 @@ export function equals(a, b) {
   return keys.every((k) => equals(a[k], b[k]))
 }
 
-// /**
-//  * 数据校验
-//  * @param {*} data 要校验的数据
-//  * @param {RegExp} rule 传入校验规则
-//  * @returns {boolean} 校验通过返回true 反之false
-//  */
-// export function verify(data, rule) {
-//   return data.test(rule)
-// }
-
 /**
  * Parse the time to string
  * @param {(Object|string|number)} time 时间戳
@@ -209,4 +199,23 @@ export function formatTime(time, option) {
   } else {
     return d.getMonth() + 1 + '月' + d.getDate() + '日' + d.getHours() + '时' + d.getMinutes() + '分'
   }
+}
+
+/**
+ * 保留两位小数
+ * @param {number} num 传入的数值
+ * @param {number} fixed 需要保留的小数位数:默认是保留两位
+ * @return {string}
+ */
+export function toFixed(num, fixed = 2) {
+  let numSplit = num.toString().split('.')
+  if (numSplit.length == 1 || !numSplit[1][fixed] || numSplit[1][fixed] <= 4) {
+    return num.toFixed(fixed)
+  }
+  numSplit[1] = +numSplit[1].substring(0, fixed) + 1
+  if (numSplit[1].length > fixed) {
+    numSplit[0] = +numSplit[0] + 1
+    numSplit[1] = numSplit[1].substring(0, fixed)
+  }
+  return numSplit.join('.')
 }
