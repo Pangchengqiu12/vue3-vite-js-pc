@@ -4,8 +4,8 @@
  * @return {string}
  */
 export function formatNumber(n) {
-  n = (~~n).toString()
-  return n[1] ? n : '0' + n
+  n = (~~n).toString();
+  return n[1] ? n : '0' + n;
 }
 
 /**
@@ -14,20 +14,20 @@ export function formatNumber(n) {
  * @returns {boolean} 返回一个布尔值是空对象返回true反之返回false
  */
 export function isEmpty(obj) {
-  let tostring = Object.prototype.toString
-  if (obj == null) return true
+  let tostring = Object.prototype.toString;
+  if (obj == null) return true;
 
   if (tostring.call(obj) == '[object Array]' || tostring.call(obj) == '[object String]') {
-    return obj.length === 0
+    return obj.length === 0;
   }
 
   if (tostring.call(obj) == '[object Object]') {
     for (let name in obj) {
-      return false
+      return false;
     }
   }
 
-  return true
+  return true;
 }
 
 /**
@@ -37,15 +37,15 @@ export function isEmpty(obj) {
  * @returns
  */
 export function debounce(fn, delay = 300) {
-  let timer = null
+  let timer = null;
 
   return async function (...args) {
-    clearTimeout(timer)
+    clearTimeout(timer);
 
     timer = setTimeout(async () => {
-      await fn.apply(this, args)
-    }, delay)
-  }
+      await fn.apply(this, args);
+    }, delay);
+  };
 }
 
 /**
@@ -55,18 +55,18 @@ export function debounce(fn, delay = 300) {
  * @returns
  */
 export function throttle(fn, gapTime) {
-  let _lastTime = null
-  gapTime = gapTime || 0
+  let _lastTime = null;
+  gapTime = gapTime || 0;
 
   return function () {
     let that = this,
       args = arguments,
-      _nowTime = +new Date()
+      _nowTime = +new Date();
     if (_nowTime - _lastTime > gapTime || !_lastTime) {
-      fn.apply(that, args)
-      _lastTime = _nowTime
+      fn.apply(that, args);
+      _lastTime = _nowTime;
     }
-  }
+  };
 }
 
 /**
@@ -75,12 +75,12 @@ export function throttle(fn, gapTime) {
  * @returns {string} 返回一个string类型
  */
 export function formatOptions(options) {
-  var urlOptions = ''
+  var urlOptions = '';
   for (var i in options) {
-    urlOptions += i + '=' + options[i] + '&'
+    urlOptions += i + '=' + options[i] + '&';
   }
-  urlOptions = urlOptions.slice(0, urlOptions.length - 1)
-  return urlOptions
+  urlOptions = urlOptions.slice(0, urlOptions.length - 1);
+  return urlOptions;
 }
 
 /**
@@ -90,14 +90,14 @@ export function formatOptions(options) {
  */
 export function isRealNum(num) {
   if (num === '' || num === null) {
-    return false
+    return false;
   }
 
   if (typeof num === 'number' && !isNaN(num)) {
-    return true
+    return true;
   }
 
-  return false
+  return false;
 }
 
 /**
@@ -107,13 +107,13 @@ export function isRealNum(num) {
  * @returns {boolean} 一致返回true 反之false
  */
 export function equals(a, b) {
-  if (a === b) return true
-  if (a instanceof Date && b instanceof Date) return a.getTime() === b.getTime()
-  if (!a || !b || (typeof a !== 'object' && typeof b !== 'object')) return a === b
-  if (a.prototype !== b.prototype) return false
-  let keys = Object.keys(a)
-  if (keys.length !== Object.keys(b).length) return false
-  return keys.every((k) => equals(a[k], b[k]))
+  if (a === b) return true;
+  if (a instanceof Date && b instanceof Date) return a.getTime() === b.getTime();
+  if (!a || !b || (typeof a !== 'object' && typeof b !== 'object')) return a === b;
+  if (a.prototype !== b.prototype) return false;
+  let keys = Object.keys(a);
+  if (keys.length !== Object.keys(b).length) return false;
+  return keys.every((k) => equals(a[k], b[k]));
 }
 
 /**
@@ -124,28 +124,28 @@ export function equals(a, b) {
  */
 export function parseTime(time, cFormat) {
   if (arguments.length === 0 || !time) {
-    return null
+    return null;
   }
-  const format = cFormat || '{y}-{m}-{d} {h}:{i}:{s}'
-  let date
+  const format = cFormat || '{y}-{m}-{d} {h}:{i}:{s}';
+  let date;
   if (typeof time === 'object') {
-    date = time
+    date = time;
   } else {
     if (typeof time === 'string') {
       if (/^[0-9]+$/.test(time)) {
         // support "1548221490638"
-        time = parseInt(time)
+        time = parseInt(time);
       } else {
         // support safari
         // https://stackoverflow.com/questions/4310953/invalid-date-in-safari
-        time = time.replace(new RegExp(/-/gm), '/')
+        time = time.replace(new RegExp(/-/gm), '/');
       }
     }
 
     if (typeof time === 'number' && time.toString().length === 10) {
-      time = time * 1000
+      time = time * 1000;
     }
-    date = new Date(time)
+    date = new Date(time);
   }
   const formatObj = {
     y: date.getFullYear(),
@@ -155,16 +155,16 @@ export function parseTime(time, cFormat) {
     i: date.getMinutes(),
     s: date.getSeconds(),
     a: date.getDay(),
-  }
+  };
   const time_str = format.replace(/{([ymdhisa])+}/g, (result, key) => {
-    const value = formatObj[key]
+    const value = formatObj[key];
     // Note: getDay() returns 0 on Sunday
     if (key === 'a') {
-      return ['日', '一', '二', '三', '四', '五', '六'][value]
+      return ['日', '一', '二', '三', '四', '五', '六'][value];
     }
-    return value.toString().padStart(2, '0')
-  })
-  return time_str
+    return value.toString().padStart(2, '0');
+  });
+  return time_str;
 }
 
 /**
@@ -175,29 +175,29 @@ export function parseTime(time, cFormat) {
  */
 export function formatTime(time, option) {
   if (('' + time).length === 10) {
-    time = parseInt(time) * 1000
+    time = parseInt(time) * 1000;
   } else {
-    time = +time
+    time = +time;
   }
-  const d = new Date(time)
-  const now = Date.now()
+  const d = new Date(time);
+  const now = Date.now();
 
-  const diff = (now - d) / 1000
+  const diff = (now - d) / 1000;
 
   if (diff < 30) {
-    return '刚刚'
+    return '刚刚';
   } else if (diff < 3600) {
     // less 1 hour
-    return Math.ceil(diff / 60) + '分钟前'
+    return Math.ceil(diff / 60) + '分钟前';
   } else if (diff < 3600 * 24) {
-    return Math.ceil(diff / 3600) + '小时前'
+    return Math.ceil(diff / 3600) + '小时前';
   } else if (diff < 3600 * 24 * 2) {
-    return '1天前'
+    return '1天前';
   }
   if (option) {
-    return parseTime(time, option)
+    return parseTime(time, option);
   } else {
-    return d.getMonth() + 1 + '月' + d.getDate() + '日' + d.getHours() + '时' + d.getMinutes() + '分'
+    return d.getMonth() + 1 + '月' + d.getDate() + '日' + d.getHours() + '时' + d.getMinutes() + '分';
   }
 }
 
@@ -208,14 +208,14 @@ export function formatTime(time, option) {
  * @return {string}
  */
 export function toFixed(num, fixed = 2) {
-  let numSplit = num.toString().split('.')
+  let numSplit = num.toString().split('.');
   if (numSplit.length == 1 || !numSplit[1][fixed] || numSplit[1][fixed] <= 4) {
-    return num.toFixed(fixed)
+    return num.toFixed(fixed);
   }
-  numSplit[1] = +numSplit[1].substring(0, fixed) + 1 + ''
+  numSplit[1] = +numSplit[1].substring(0, fixed) + 1 + '';
   if (numSplit[1].length > fixed) {
-    numSplit[0] = +numSplit[0] + 1
-    numSplit[1] = numSplit[1].substring(1, fixed + 1)
+    numSplit[0] = +numSplit[0] + 1;
+    numSplit[1] = numSplit[1].substring(1, fixed + 1);
   }
-  return numSplit.join('.')
+  return numSplit.join('.');
 }

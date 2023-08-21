@@ -1,12 +1,12 @@
 // import { useMemberStore } from '@/stores'
-import { createRouter, createWebHashHistory } from 'vue-router'
+import { createRouter, createWebHashHistory } from 'vue-router';
 
 const routes = [
   {
     path: '/',
     component: () => import('@/views/index/index.vue'),
   },
-]
+];
 
 // 创建路由实例
 const router = createRouter({
@@ -17,9 +17,9 @@ const router = createRouter({
   // VueRouter@4官网 - 进阶 - 滚动行为
   scrollBehavior: () => {
     // 始终滚动到顶部
-    return { top: 0 }
+    return { top: 0 };
   },
-})
+});
 
 // 📌需求：已登录的用户才允许访问个人中心。
 // （未登录怎么？跳转到登录页并携带回跳地址）
@@ -36,4 +36,4 @@ const router = createRouter({
 // console.log(to)
 // })
 
-export default router
+export default router;

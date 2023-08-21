@@ -1,12 +1,12 @@
 <script setup>
-import { ref, onMounted } from 'vue'
-import { demoApi } from '@/api/demo.js'
-import { useLogin } from '@/hooks/useLogin'
-const { login } = useLogin()
+import { ref, onMounted } from 'vue';
+import { demoApi } from '@/api/demo.js';
+import { useLogin } from '@/hooks/useLogin';
+const { login } = useLogin();
 
 defineProps({
   msg: String,
-})
+});
 </script>
 
 <template>

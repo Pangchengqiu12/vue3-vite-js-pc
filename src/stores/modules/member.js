@@ -1,16 +1,16 @@
-import { defineStore } from 'pinia'
-import { ref } from 'vue'
+import { defineStore } from 'pinia';
+import { ref } from 'vue';
 export const useMemberStore = defineStore(
   'userinfo',
   () => {
-    const userInfo = ref(null)
+    const userInfo = ref(null);
     const setUserInfo = (val) => {
-      userInfo.value = val
-    }
+      userInfo.value = val;
+    };
     return {
       userInfo,
       setUserInfo,
-    }
+    };
   },
   {
     // persist: true,
@@ -22,4 +22,4 @@ export const useMemberStore = defineStore(
       },
     ],
   },
-)
+);

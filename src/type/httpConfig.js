@@ -4,7 +4,7 @@
  */
 export const ResultCode = {
   SUCCESS: 200,
-}
+};
 
 /**
  * 请求头contentType类型
@@ -14,7 +14,7 @@ export const ContentType = {
   FORM_URLENCODED: 'application/x-www-form-urlencoded',
   MULTIPART: 'multipart/form-data',
   TEXT: 'text/plain',
-}
+};
 
 /**
  * 返回的错误code对应的错误信息
@@ -27,4 +27,4 @@ export const ErrorMsg = {
   ERROR_500: '请求失败，服务器错误，请联系管理员',
   ERROR_503: '请求失败，服务器异常',
   ERROR_504: '请求失败，请求超时',
-}
+};
