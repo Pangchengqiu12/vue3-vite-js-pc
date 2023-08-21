@@ -13,18 +13,6 @@
     "*.{js,ts,vue}": [
       "eslint --fix",
       "npx prettier --write ."
-    ],
-    "{!(package)*.json,*.code-snippets,.!(browserslist)*rc}": [
-      "npx prettier --write--parser json"
-    ],
-    "package.json": [
-      "npx prettier --write"
-    ],
-    "*.{scss,less,styl,html}": [
-      "npx prettier --write"
-    ],
-    "*.md": [
-      "npx prettier --write"
     ]
   },
   "dependencies": {
