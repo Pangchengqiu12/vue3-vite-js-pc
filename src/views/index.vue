@@ -1,5 +1,5 @@
 <template>
-  <div></div>
+  <div class="text-3xl font-bold underline">23423</div>
 </template>
 
 <script setup></script>
